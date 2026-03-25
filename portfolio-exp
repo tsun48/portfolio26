@@ -45,14 +45,17 @@
 <body>
 
   <header>
-    <h1>miffynco</h1>
-    <p>photogallery</p>
+    <h1>Your Name</h1>
+    <p>Photography Portfolio</p>
   </header>
 
   <div class="grid" id="gallery">
     <img src="photos/photo1.jpg" alt="Photo 1">
     <img src="photos/photo2.jpg" alt="Photo 2">
-    <!-- Add more imgs here -->
+    <img src="photos/photo3.jpg" alt="Photo 3">
+    <img src="photos/photo4.jpg" alt="Photo 4">
+    <img src="photos/photo5.jpg" alt="Photo 5">
+    <img src="photos/photo6.jpg" alt="Photo 6">
   </div>
 
   <div id="lightbox">
