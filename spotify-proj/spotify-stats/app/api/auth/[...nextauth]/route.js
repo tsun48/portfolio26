@@ -18,15 +18,17 @@ const handler = NextAuth({
 
   callbacks: {
     async signIn({ user, account }) {
-      if (account.provider === 'spotify') {
-        await supabase.from('users').upsert({
-          id: user.id,
-          spotify_id: account.providerAccountId,
-          display_name: user.name,
-          refresh_token: account.refresh_token,
+    if (account.provider === 'spotify') {
+        const { error } = await supabase.from('users').upsert({
+        id: user.id,
+        spotify_id: account.providerAccountId,
+        display_name: user.name,
+        refresh_token: account.refresh_token,
         }, { onConflict: 'id' })
-      }
-      return true
+
+        if (error) console.error('Supabase upsert error:', error)
+    }
+    return true
     },
 
     async jwt({ token, account }) {
