@@ -40,3 +40,12 @@ export async function getRecentlyPlayed(accessToken) {
 
   return data
 }
+
+export async function getArtistGenres(accessToken, artistId) {
+  const res = await fetch(
+    `https://api.spotify.com/v1/artists/${artistId}`,
+    { headers: { Authorization: `Bearer ${accessToken}` } }
+  )
+  const data = await res.json()
+  return data.genres ?? []
+}
