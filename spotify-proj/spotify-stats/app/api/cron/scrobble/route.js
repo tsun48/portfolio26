@@ -1,5 +1,5 @@
 import supabase from '@/lib/db'
-import { refreshAccessToken, getRecentlyPlayed } from '@/lib/spotify'
+import { refreshAccessToken, getRecentlyPlayed, getArtistGenres } from '@/lib/spotify'
 
 export async function GET(request) {
   const authHeader = request.headers.get('authorization')
