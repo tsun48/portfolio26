@@ -62,7 +62,6 @@
   </header>
 
   <div class="grid" id="gallery">
-    <!-- local photos (kept as fallback reference)
     <img src="photos/001.jpg" alt="001">
     <img src="photos/008.jpg" alt="008">
     <img src="photos/003.jpg" alt="003">
@@ -74,7 +73,6 @@
     <img src="photos/009.jpg" alt="009">
     <img src="photos/010.jpg" alt="010">
     <img src="photos/012.jpg" alt="012">
-    -->
   </div>
 
   <div id="lightbox">
@@ -85,6 +83,15 @@
   <script>
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lb.classList.add('open');
+      });
+    });
+
+    /* Dropbox dynamic loading (commented out)
     const gallery = document.getElementById('gallery');
 
     function attachLightbox(img) {
@@ -94,7 +101,6 @@
       });
     }
 
-    // Load photos from Dropbox via serverless function
     fetch('/api/photos')
       .then(r => r.json())
       .then(({ photos }) => {
@@ -109,6 +115,7 @@
       .catch(() => {
         gallery.innerHTML = '<p style="color:#aaa;padding:1rem">Could not load photos.</p>';
       });
+    */
 
     document.getElementById('lightbox-close').addEventListener('click', () => {
       lb.classList.remove('open');
