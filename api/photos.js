@@ -15,7 +15,11 @@ module.exports = async function handler(req, res) {
         client_secret: DROPBOX_APP_SECRET,
       }),
     });
-    const { access_token } = await tokenRes.json();
+    const tokenJson = await tokenRes.json();
+    if (!tokenJson.access_token) {
+      return res.status(500).json({ error: 'Token exchange failed', detail: tokenJson });
+    }
+    const access_token = tokenJson.access_token;
 
     // List files in the folder
     const listRes = await fetch('https://api.dropboxapi.com/2/files/list_folder', {
@@ -26,7 +30,11 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify({ path: DROPBOX_FOLDER_PATH || '', recursive: false }),
     });
-    const { entries } = await listRes.json();
+    const listJson = await listRes.json();
+    if (!listJson.entries) {
+      return res.status(500).json({ error: 'Folder listing failed', detail: listJson });
+    }
+    const { entries } = listJson;
 
     const imageEntries = entries.filter(e =>
       e['.tag'] === 'file' && /\.(jpe?g|png|gif|webp)$/i.test(e.name)
