@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
     });
     const listJson = await listRes.json();
     if (!listJson.entries) {
-      return res.status(500).json({ error: 'Folder listing failed', detail: listJson });
+      return res.status(500).json({ error: 'Folder listing failed', detail: listJson, path_used: DROPBOX_FOLDER_PATH || '' });
     }
     const { entries } = listJson;
 
