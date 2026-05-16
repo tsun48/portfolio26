@@ -51,6 +51,6 @@ module.exports = async function handler(req, res) {
     res.status(200).json({ photos: links.filter(Boolean) });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Failed to load photos' });
+    res.status(500).json({ error: err.message || String(err) });
   }
 }
