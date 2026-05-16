@@ -42,6 +42,16 @@
       position: absolute; top: 1rem; right: 1.5rem;
       font-size: 2rem; cursor: pointer; color: white;
     }
+
+    @media (max-width: 600px) {
+      header { padding: 1rem 1rem 0.75rem; }
+      header h1 { font-size: 1.6rem; }
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0.75rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -52,6 +62,7 @@
   </header>
 
   <div class="grid" id="gallery">
+    <!-- local photos (kept as fallback reference)
     <img src="photos/001.jpg" alt="001">
     <img src="photos/008.jpg" alt="008">
     <img src="photos/003.jpg" alt="003">
@@ -63,6 +74,7 @@
     <img src="photos/009.jpg" alt="009">
     <img src="photos/010.jpg" alt="010">
     <img src="photos/012.jpg" alt="012">
+    -->
   </div>
 
   <div id="lightbox">
@@ -73,13 +85,30 @@
   <script>
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
+    const gallery = document.getElementById('gallery');
 
-    document.querySelectorAll('.grid img').forEach(img => {
+    function attachLightbox(img) {
       img.addEventListener('click', () => {
         lbImg.src = img.src;
         lb.classList.add('open');
       });
-    });
+    }
+
+    // Load photos from Dropbox via serverless function
+    fetch('/api/photos')
+      .then(r => r.json())
+      .then(({ photos }) => {
+        photos.forEach(url => {
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = '';
+          attachLightbox(img);
+          gallery.appendChild(img);
+        });
+      })
+      .catch(() => {
+        gallery.innerHTML = '<p style="color:#aaa;padding:1rem">Could not load photos.</p>';
+      });
 
     document.getElementById('lightbox-close').addEventListener('click', () => {
       lb.classList.remove('open');
