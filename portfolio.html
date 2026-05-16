@@ -8,7 +8,15 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #ffffff; color: #000000; font-family: sans-serif; }
 
-    header { text-align: right; padding: 1rem 2rem 0; }
+    .topbar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 1rem 2rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    header { text-align: right; }
     header h1 { font-size: 2.5rem; letter-spacing: 0.1em; }
     header p  { color: #aaa; margin-top: 0.5rem; }
 
@@ -16,9 +24,7 @@
       display: flex;
       justify-content: flex-start;
       gap: 0.75rem;
-      padding: 0.5rem 2rem 0;
       flex-wrap: wrap;
-      border-bottom: 1px solid #eee;
     }
 
     .tab-button {
@@ -81,9 +87,8 @@
     }
 
     @media (max-width: 800px) {
-      header { padding: 1rem 1rem 0; }
+      .topbar { padding: 1rem 1rem 0; }
       header h1 { font-size: 2rem; }
-      .tabs { padding-top: 0.75rem; }
       .grid { padding: 1.5rem 0.75rem 2rem; }
     }
 
@@ -95,16 +100,17 @@
 </head>
 <body>
 
-  <header>
-    <h1>miffynco</h1>
-    <p>photogallery</p>
-  </header>
-
-  <div class="tabs" id="tabs">
-    <button class="tab-button active" data-category="geo">geo</button>
-    <button class="tab-button" data-category="destinations">destinations</button>
-    <button class="tab-button" data-category="frames">frames</button>
-    <button class="tab-button" data-category="twos">twos</button>
+  <div class="topbar">
+    <div class="tabs" id="tabs">
+      <button class="tab-button active" data-category="geo">geo</button>
+      <button class="tab-button" data-category="destinations">destinations</button>
+      <button class="tab-button" data-category="frames">frames</button>
+      <button class="tab-button" data-category="twos">twos</button>
+    </div>
+    <header>
+      <h1>miffynco</h1>
+      <p>photogallery</p>
+    </header>
   </div>
 
   <div class="grid" id="gallery">
