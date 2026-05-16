@@ -119,7 +119,7 @@
 
   <div class="tabs" id="tabs">
     <button class="tab-button active" data-category="geo">geo</button>
-    <button class="tab-button" data-category="destination">destination</button>
+    <button class="tab-button" data-category="destinations">destinations</button>
     <button class="tab-button" data-category="frames">frames</button>
     <button class="tab-button" data-category="twos">twos</button>
   </div>
@@ -136,17 +136,23 @@
   <script>
     // Edit the position numbers here to rearrange photos inside each category
     const photoOrder = [
-      { file: "001.jpg", position: 1, category: "geo" },
-      { file: "008.jpg", position: 1, category: "destination" },
-      { file: "003.jpg", position: 1, category: "frames" },
-      { file: "004.jpg", position: 1, category: "twos" },
-      { file: "005.jpg", position: 2, category: "geo" },
-      { file: "006.jpg", position: 2, category: "destination" },
-      { file: "007.jpg", position: 2, category: "frames" },
-      { file: "002.jpg", position: 2, category: "twos" },
-      { file: "009.jpg", position: 3, category: "geo" },
-      { file: "010.jpg", position: 3, category: "destination" },
-      { file: "012.jpg", position: 3, category: "frames" },
+      { file: "geo_1.jpg", position: 1, category: "geo" },
+      { file: "geo_2.jpg", position: 2, category: "geo" },
+      { file: "geo_3.jpg", position: 3, category: "geo" },
+      { file: "geo_4.jpg", position: 4, category: "geo" },
+      { file: "geo_5.jpg", position: 5, category: "geo" },
+      { file: "dest_1.jpg", position: 1, category: "destinations" },
+      { file: "dest_2.jpg", position: 2, category: "destinations" },
+      { file: "dest_3.jpg", position: 3, category: "destinations" },
+      { file: "dest_4.jpg", position: 4, category: "destinations" },
+      { file: "dest_5.jpg", position: 5, category: "destinations" },
+      { file: "frames_1.jpg", position: 1, category: "frames" },
+      { file: "frames_2.jpg", position: 2, category: "frames" },
+      { file: "frames_3.jpg", position: 3, category: "frames" },
+      { file: "twos_1.jpg", position: 1, category: "twos" },
+      { file: "twos_2.jpg", position: 2, category: "twos" },
+      { file: "twos_3.jpg", position: 3, category: "twos" },
+      { file: "twos_4.jpg", position: 4, category: "twos" },
     ];
 
     const gallery = document.getElementById('gallery');
