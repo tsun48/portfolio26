@@ -86,6 +86,7 @@
       font-size: 0.85rem;
       line-height: 1.5;
       padding-top: 0.25rem;
+      white-space: pre-line;
     }
 
     .about-section {
@@ -160,7 +161,7 @@
   </div>
 
   <div class="about-section" id="about-section">
-    <p>about me placeholder — write something here.</p>
+    <p>my name is tiffany. photography is fun. shot on panasonic lumix zs99 and other. always looking for more.</p>
   </div>
 
   <div class="grid" id="gallery">
@@ -175,37 +176,44 @@
   <script>
     // Edit the position numbers here to rearrange photos inside each category
     const photoOrder = [
+      { file: "geo_6.jpg", position: 1, category: "geometry", caption: "2025.08.16\nO'HARE\nvanishing point" },
       { file: "geo_4.jpg", position: 2, category: "geometry" },
       { file: "geo_1.jpg", position: 3, category: "geometry" },
       { file: "geo_3.jpg", position: 4, category: "geometry" },
       { file: "geo_5.jpg", position: 5, category: "geometry" },
       { file: "geo_2.jpg", position: 6, category: "geometry" },
-      { file: "geo_6.jpg", position: 1, category: "geometry" },
+
       { file: "dest_2.jpg", position: 1, category: "destinations" },
       { file: "dest_3.jpg", position: 2, category: "destinations" },
       { file: "dest_4.jpg", position: 3, category: "destinations" },
       { file: "dest_5.jpg", position: 4, category: "destinations" },
+
       { file: "frames_1.jpg", position: 1, category: "frames" },
       { file: "frames_2.jpg", position: 2, category: "frames" },
       { file: "frames_4.jpg", position: 3, category: "frames" },
       { file: "frames_5.jpg", position: 4, category: "frames" },
+
       { file: "sal_1.jpg", position: 1, category: "salience" },
       { file: "sal_2.jpg", position: 2, category: "salience" },
       { file: "sal_3.jpg", position: 3, category: "salience" },
       { file: "sal_4.jpg", position: 4, category: "salience" },
       { file: "sal_5.jpg", position: 5, category: "salience" },
+
       { file: "comp_1.jpg", position: 1, category: "complemence" },
       { file: "comp_2.jpg", position: 2, category: "complemence" },
       { file: "comp_3.jpg", position: 3, category: "complemence" },
       { file: "comp_4.jpg", position: 4, category: "complemence" },
+
       { file: "radii_1.jpg", position: 1, category: "radii" },
       { file: "radii_2.jpg", position: 2, category: "radii" },
       { file: "radii_3.jpg", position: 3, category: "radii" },
       { file: "radii_4.jpg", position: 4, category: "radii" },
+
+      { file: "twos_4.jpg", position: 1, category: "twos" },
       { file: "twos_1.jpg", position: 2, category: "twos" },
       { file: "twos_2.jpg", position: 3, category: "twos" },
       { file: "twos_3.jpg", position: 4, category: "twos" },
-      { file: "twos_4.jpg", position: 1, category: "twos" },
+
     ];
 
     const gallery = document.getElementById('gallery');
